@@ -3,7 +3,10 @@
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="include/jsapi"></script>
+    <script type="text/javascript" src="include/jquery.min.js"></script>
     <script type="text/javascript">
+
     
     // Load the Visualization API and the piechart package.
     google.charts.load('current', {'packages':['corechart']});
@@ -27,10 +30,33 @@
     }
 
     </script>
-  </head>
+  <body id="body">
+<div id="content">
+<form action ="" method ="POST">
+<tr id="tableRow">
+        <th valign="bottom">Select country:</th>
+        <td >   
+        <select name="country" id="myCountry" class="">
+            
+               <option value = "AFG">Afganistan</option>
+               <option value = "ALB">Albania</option>
+               
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
+
+            </select>
+            
+        </td>
+        
+            
+        </td>
+        <td valign="top">
+            <input type="button" class="action" onclick="displayGraph();" value="Display Graph" />
+            </td>
+</tr>
+
+</form>
+<div id="chart_div"></div>
+</div>
+
+</body>
 </html>
