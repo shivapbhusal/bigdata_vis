@@ -13,19 +13,19 @@ ini_set('display_errors', 1);
 
     $myquery = "SELECT  `year`, 
 
-        sum(case when `station_id` = '$station' then `avg_temp` else 0 end) AS `$station`,
-        sum(case when `station_id` = '$stationtwo' then `avg_temp` else 0 end) AS `$stationtwo`
+        sum(case when `station_id` = '$station' then `avg_temp` else 0 end) AS `stationone`,
+        sum(case when `station_id` = '$stationtwo' then `avg_temp` else 0 end) AS `stationtwo`
         
     FROM   `station_info`
-    GROUP BY `year`";
+    ";
 
     $query = mysql_query($myquery);
     $table = array();
     $table['cols'] = array(
     
     array('label' => 'year', 'type' => 'string'),
-    array('label' => $station, 'type' => 'number'),
-    array('label' => $stationtwo, 'type' => 'number'),
+    array('label' => 'stationone', 'type' => 'number'),
+    array('label' => 'stationtwo', 'type' => 'number'),
 
 
 );
@@ -33,8 +33,8 @@ ini_set('display_errors', 1);
     while($r = mysql_fetch_assoc($query)) {
     $temp = array();
     $temp[] = array('v' => $r['year']);
-    $temp[] = array('v' => $r['A']);
-    $temp[] = array('v' => $r['B']);
+    $temp[] = array('v' => $r['stationone']);
+    $temp[] = array('v' => $r['stationtwo']);
    
    
     
