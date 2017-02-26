@@ -45,7 +45,7 @@
         Enter Station ID: <input type="text" name="station" id="myStation"> 
         </td>
         <td valign="top">
-        <input type="button" class="action" onclick="displayGraph();" value="Display Graph" />
+        <input type="button" class="action" onclick="displayGraph();" value="Display Chart" />
         </td>
 </tr>
 
