@@ -5,8 +5,7 @@ ini_set('display_errors', 1);
     $host = "localhost";
     $database="bigdata";
     
-    $station_id='A';
-     
+    $station=$_GET["station"];  
     
     $server = mysql_connect($host, $username, $password);
     $connection = mysql_select_db($database, $server);

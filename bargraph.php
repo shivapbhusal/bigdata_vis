@@ -8,15 +8,21 @@
     <script type="text/javascript">
 
     
-    // Load the Visualization API and the piechart package.
+    
     google.charts.load('current', {'packages':['corechart']});
-      
-    // Set a callback to run when the Google Visualization API is loaded.
     google.charts.setOnLoadCallback(drawChart);
+
+    function displayGraph(){
+    var station = document.getElementById('myStation').value;
+    
+
+    var content = document.getElementById("content");
+    document.getElementById("body").innerHTML = "";
+    document.getElementById("body").appendChild(content);
       
     function drawChart() {
       var jsonData = $.ajax({
-          url: "getData.php",
+          url: "getData.php?&station="+station,
           dataType: "json",
           async: false
           }).responseText;
@@ -28,22 +34,24 @@
       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       chart.draw(data, {width: 400, height: 240});
     }
+    drawChart();
+  }
 
     </script>
   <body id="body">
 <div id="content">
 <form action ="" method ="POST">
 <tr id="tableRow">
-        <th valign="bottom">Select country:</th>
+        <th valign="bottom">Select station ID :</th>
         <td >   
-        <select name="country" id="myCountry" class="">
+        <select name="station" id="myStation" class="">
             
-               <option value = "AFG">Afganistan</option>
-               <option value = "ALB">Albania</option>
+               <option value = "A">A</option>
+               <option value = "B">A</option>
                
 
 
-            </select>
+        </select>
             
         </td>
         
