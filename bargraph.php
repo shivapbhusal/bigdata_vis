@@ -47,7 +47,7 @@
         <select name="station" id="myStation" class="">
             
                <option value = "A">A</option>
-               <option value = "B">A</option>
+               <option value = "B">B</option>
                
 
 

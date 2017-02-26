@@ -10,7 +10,7 @@ ini_set('display_errors', 1);
     $server = mysql_connect($host, $username, $password);
     $connection = mysql_select_db($database, $server);
 
-    $myquery = "SELECT  `year`, `avg_temp` FROM  station_info WHERE `station_id`='A'";
+    $myquery = "SELECT  `year`, `avg_temp` FROM  station_info WHERE `station_id`='$station'";
     $query = mysql_query($myquery);
     $table = array();
     $table['cols'] = array(
