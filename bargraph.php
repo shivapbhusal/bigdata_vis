@@ -31,7 +31,7 @@
       var data = new google.visualization.DataTable(jsonData);
 
       // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
       chart.draw(data, {width: 400, height: 240});
     }
     drawChart();
@@ -41,25 +41,12 @@
   <body id="body">
 <div id="content">
 <form action ="" method ="POST">
-<tr id="tableRow">
-        <th valign="bottom">Select station ID :</th>
-        <td >   
-        <select name="station" id="myStation" class="">
-            
-               <option value = "A">A</option>
-               <option value = "B">B</option>
-               
-
-
-        </select>
-            
-        </td>
-        
-            
+        <td>
+        Enter Station ID: <input type="text" name="station" id="myStation"> 
         </td>
         <td valign="top">
-            <input type="button" class="action" onclick="displayGraph();" value="Display Graph" />
-            </td>
+        <input type="button" class="action" onclick="displayGraph();" value="Display Graph" />
+        </td>
 </tr>
 
 </form>

@@ -42,4 +42,5 @@ header('Content-type: application/json');
 // return the JSON data
 
 echo $jsonTable;
+
 ?>
