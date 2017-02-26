@@ -3,17 +3,27 @@
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="include/jsapi"></script>
+    <script type="text/javascript" src="include/jquery.min.js"></script>
     <script type="text/javascript">
+
     
-    // Load the Visualization API and the piechart package.
+    
     google.charts.load('current', {'packages':['corechart']});
-      
-    // Set a callback to run when the Google Visualization API is loaded.
     google.charts.setOnLoadCallback(drawChart);
+
+    function displayGraph(){
+    var station = document.getElementById('myStation').value;
+    var stationtwo = document.getElementById('myStationTwo').value;
+    
+
+    var content = document.getElementById("content");
+    document.getElementById("body").innerHTML = "";
+    document.getElementById("body").appendChild(content);
       
     function drawChart() {
       var jsonData = $.ajax({
-          url: "data.php",
+          url: "getCompareData.php?&station="+station+"&stationtwo="+stationtwo,
           dataType: "json",
           async: false
           }).responseText;
@@ -25,12 +35,27 @@
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
       chart.draw(data, {width: 400, height: 240});
     }
+    drawChart();
+  }
 
     </script>
-  </head>
+  <body id="body">
+<div id="content">
+<form action ="" method ="POST">
+        <td>
+        Enter First Station ID: <input type="text" name="station" id="myStation"> 
+        </td>
+        <td>
+        Enter Second Station ID: <input type="text" name="stationtwo" id="myStationTwo"> 
+        </td>
+        <td valign="top">
+        <input type="button" class="action" onclick="displayGraph();" value="Display Chart" />
+        </td>
+</tr>
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
+</form>
+<div id="chart_div"></div>
+</div>
+
+</body>
 </html>

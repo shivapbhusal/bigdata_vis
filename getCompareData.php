@@ -5,26 +5,37 @@ ini_set('display_errors', 1);
     $host = "localhost";
     $database="bigdata";
     
-    $station_id='A';
-     
+    $station=$_GET["station"];
+    $stationtwo=$_GET["stationtwo"];  
     
     $server = mysql_connect($host, $username, $password);
     $connection = mysql_select_db($database, $server);
 
-    $myquery = "SELECT  `year`, `avg_temp` FROM  station_info WHERE `station_id`='A'";
+    $myquery = "SELECT  `year`, 
+
+        sum(case when `station_id` = 'A' then `avg_temp` else 0 end) AS `A`,
+        sum(case when `station_id` = 'B' then `avg_temp` else 0 end) AS `B`
+        
+    FROM   `station_info`
+    GROUP BY `year`";
+
     $query = mysql_query($myquery);
     $table = array();
     $table['cols'] = array(
     
     array('label' => 'year', 'type' => 'string'),
-    array('label' => 'avg_temp', 'type' => 'number'),
+    array('label' => 'A', 'type' => 'number'),
+    array('label' => 'B', 'type' => 'number'),
+
 
 );
     $rows = array();
     while($r = mysql_fetch_assoc($query)) {
     $temp = array();
     $temp[] = array('v' => $r['year']);
-    $temp[] = array('v' => $r['avg_temp']);
+    $temp[] = array('v' => $r['A']);
+    $temp[] = array('v' => $r['B']);
+   
    
     
     $rows[] = array('c' => $temp);
@@ -43,4 +54,5 @@ header('Content-type: application/json');
 // return the JSON data
 
 echo $jsonTable;
+
 ?>
