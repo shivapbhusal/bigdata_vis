@@ -13,8 +13,8 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function displayGraph(){
-    var station = document.getElementById('myStation').value;
-    var stationtwo = document.getElementById('myStationTwo').value;
+    var myFromYear = document.getElementById('myFromYear').value;
+    var myToYear = document.getElementById('myToYear').value;
     
 
     var content = document.getElementById("content");
@@ -23,7 +23,7 @@
       
     function drawChart() {
       var jsonData = $.ajax({
-          url: "getYearlyData.php?&station="+station+"&stationtwo="+stationtwo,
+          url: "getYearlyData.php?&myFromYear="+myFromYear+"&myToYear="+myToYear,
           dataType: "json",
           async: false
           }).responseText;
@@ -43,10 +43,10 @@
 <div id="content">
 <form action ="" method ="POST">
         <td>
-        Year From: <input type="text" name="station" id="myStation"> 
+        Year From: <input type="text" name="fromyear" id="myFromYear"> 
         </td>
         <td>
-        To: <input type="text" name="stationtwo" id="myStationTwo"> 
+        To: <input type="text" name="toyear" id="myToYear"> 
         </td>
         <td valign="top">
         <input type="button" class="action" onclick="displayGraph();" value="Display Chart" />

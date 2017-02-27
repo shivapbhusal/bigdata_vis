@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
     $host = "localhost";
     $database="bigdata";
     
-    $fromyear=1901;
-    $toyear=1940;  
+    $fromyear=$_GET["myFromYear"];
+    $toyear=$_GET["myToYear"];  
     
     $server = mysql_connect($host, $username, $password);
     $connection = mysql_select_db($database, $server);
