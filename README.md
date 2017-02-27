@@ -9,6 +9,11 @@ Following sites / repositories have been looked up for possible references :
 
 [2] http://stackoverflow.com/
 
+[3] The module for the conversion of SQL result to a Json Table has been reused/modified from this self project. 
+https://github.com/shivapbhusal/Climate_Data_Mining
+
+
+
 
 
 
