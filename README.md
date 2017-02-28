@@ -1,4 +1,5 @@
 # bigdata_vis
+**References**
 This is the visualization part of an academic project at BGSU. 
 
 Original Data has been downloaded from ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ and has been processed to the suitable format. 
@@ -14,7 +15,8 @@ https://github.com/shivapbhusal/vulnerability_analysis
 
 [4] https://www.tutorialspoint.com/
 
-Steps for Project Set up 
+
+**Steps for Project Set up** 
 
 1. Install Xampp. This project was built in Xampp 5.6.30 and PHP 5. 
 2. Download this project and keep it inside the htdocs folder ( C:\xampp\htdocs ) 
